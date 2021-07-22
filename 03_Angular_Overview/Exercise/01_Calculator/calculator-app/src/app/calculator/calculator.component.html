@@ -1,0 +1,11 @@
+<h1>Calculator</h1>
+<p>Fist operand</p>
+<input type="number" (change)="changeFirstOperand($event)">
+<p>Second operand</p>
+<input type="number" (change)="changeSecondOperand($event)">
+<input type="button" value="+" value="+" (click)="sum()">
+<input type="button" value="-" value="-" (click)="sub()">
+<input type="button" value="*" value="*" (click)="mul()">
+<input type="button" value="/" value="/" (click)="div()">
+<br>
+<h2>Result: {{result}}</h2>
