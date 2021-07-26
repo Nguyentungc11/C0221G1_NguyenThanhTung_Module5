@@ -1,0 +1,6 @@
+<input type="text" (change)="getNumber(number.value)" #number>
+
+<app-coundown-time (finish)="changeValue($event)"></app-coundown-time>
+
+<p>{{num}}</p>
+<p>{{isRun}}</p>
