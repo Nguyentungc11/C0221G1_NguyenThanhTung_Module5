@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="col-5">
+    <form [formGroup]="formRegister" (ngSubmit)="add()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email" name="email">
+        <div *ngIf="formRegister.controls.email.hasError('required') && (formRegister.controls.email.touched || formRegister.controls.email.dirty)">Không được rỗng</div>
+        <div *ngIf="formRegister.controls.email.hasError('email') && formRegister.controls.email.touched">Định dạng chưa đúng</div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" name="password">
+        <div *ngIf="formRegister.controls.password.hasError('required') && (formRegister.controls.password.touched || formRegister.controls.password.dirty)">Không được rỗng</div>
+        <div *ngIf="formRegister.controls.password.hasError('minlength') && (formRegister.controls.password.touched || formRegister.controls.password.dirty)">Độ dài phải >= 6</div>
+      </div>
+      <div class="form-group">
+        <label for="confirm">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm" formControlName="confirmPassword" name="confirmPassword">
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" class="form-control" id="age" formControlName="age" name="age">
+        <div *ngIf="formRegister.controls.age.hasError('min') && formRegister.controls.age.touched">Tuổi phải lớn hơn 18</div>
+      </div>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select type="text" class="form-control" id="country" formControlName="country" name="country">
+          <option [ngValue]="c.id" *ngFor="let c of countryList">{{c.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="radio" value="male" id="gender" name="gender" formControlName="gender"> Male
+        <input type="radio" value="female" id="gender" name="gender" formControlName="gender"> Female
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone" name="phone">
+      </div>
+
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
